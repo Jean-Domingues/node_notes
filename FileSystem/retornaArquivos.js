@@ -25,7 +25,4 @@ async function walk(files, dirName){
   }
 }
 
-// readDir(process.argv[0])
-
-
 readDir(process.argv.slice(2).toString())
