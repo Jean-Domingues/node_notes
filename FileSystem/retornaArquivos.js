@@ -25,4 +25,7 @@ async function walk(files, dirName){
   }
 }
 
-readDir('C:/Users/jeand/desktop/pastas')
+// readDir(process.argv[0])
+
+
+readDir(process.argv.slice(2).toString())
