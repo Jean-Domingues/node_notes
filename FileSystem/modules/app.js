@@ -1,4 +1,5 @@
 const writeFile = require('./escrever');
+const readFile = require('./ler');
 const path = require('path');
 
 const fullPath = path.resolve(__dirname, 'teste.json');
@@ -14,4 +15,6 @@ const pessoas = [
 
 const json  = JSON.stringify(pessoas, '', 2)
 
-writeFile(fullPath, json)
+// writeFile(fullPath, json)
+
+readFile(fullPath).then(date => console.log(JSON.parse(date)))
