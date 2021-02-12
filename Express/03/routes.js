@@ -1,12 +1,11 @@
 const express = require('express');
-const route = express.Router()
+const route = express.Router();
+const homeController = require('./controllers/homeController');
+const contatoController = require('./controllers/contatoController');
 
-route.get('/', (req, res) => {
-  res.send(
-    `<form action="/" method="POST">
-    Nome: <input type="text" name="nome">
-    <button>Enviar</button>
-    </form>
-    `
-  );
-});
+route.get('/', homeController.paginaInicial);
+route.post('/', homeController.postRequest);
+
+route.get('/contato', contatoController.paginaInicial)
+
+module.exports = route;
