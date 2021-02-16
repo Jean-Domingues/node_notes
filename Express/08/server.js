@@ -1,14 +1,18 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true})
-  .then(()=> {
-    console.log('Conectado');
-    app.emit('pronto')
-  }).catch(e => console.log(e))
+mongoose
+  .connect(process.env.CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.emit('pronto');
+  })
+  .catch((e) => console.log(e));
 
 const routes = require('./routes');
 const path = require('path');
@@ -29,8 +33,8 @@ app.set('view engine', 'ejs');
 app.use(middleware);
 app.use(routes);
 
-app.on('pronto', ()=> {
-  app.listen(3000, ()=>{
+app.on('pronto', () => {
+  app.listen(3000, () => {
     console.log('Server On Air: http://localhost:3000');
   });
-})
+});
