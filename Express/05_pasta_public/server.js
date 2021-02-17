@@ -6,7 +6,7 @@ const path = require('path');
 // Diz o formato esperado no body em requisições POST
 app.use(express.urlencoded({ extended: true }));
 
-// Seta a nossa pasta de conteúdo estático 
+// Seta a nossa pasta de conteúdo estático, da qual podemos acessar via URL
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 // Seta a nossa pasta de views, qual vai ser a pasta base para a função render
