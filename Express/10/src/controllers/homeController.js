@@ -1,16 +1,12 @@
 const HomeModel = require('../models/HomeModel');
 
 exports.paginaInicial = (req, res) => {
-  /**
-   * Crio uma sessão no meu DB, e consigo ter acesso a ela em até 7 dias
-   */
-
-  // req.session.usuario = { nome: 'jean', logado: true}  -> criando um arquivo na sessão
-  // console.log(req.session.usuario) -> { nome: 'jean', logado: true }
-
-  res.render('index')
-}
+  res.render('index', {
+    titulo: '<span style="color: red;">Olá mundo</span>',
+    numeros: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  });
+};
 
 exports.postRequest = (req, res) => {
-  res.send(req.body)
-}
+  res.send(req.body);
+};
